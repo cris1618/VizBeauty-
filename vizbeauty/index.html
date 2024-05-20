@@ -560,6 +560,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#vizbeauty.vizbeauty.beautybar" class="md-nav__link">
+    <span class="md-ellipsis">
+      beautybar()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vizbeauty.vizbeauty.reg_scatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      reg_scatter()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vizbeauty.vizbeauty.visualize_hyperparameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      visualize_hyperparameter()
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -632,6 +659,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#vizbeauty.vizbeauty.beautybar" class="md-nav__link">
+    <span class="md-ellipsis">
+      beautybar()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vizbeauty.vizbeauty.reg_scatter" class="md-nav__link">
+    <span class="md-ellipsis">
+      reg_scatter()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vizbeauty.vizbeauty.visualize_hyperparameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      visualize_hyperparameter()
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -663,6 +717,298 @@
 
       <p>Main module.</p>
 
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="vizbeauty.vizbeauty.beautybar" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">beautybar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">data_avg</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#vizbeauty.vizbeauty.beautybar" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Create a bar plot with annotations for each bar and a horizontal line indicating the general average value
+of the variable plotted on the y-axis.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>x</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the variable to be plotted on the x-axis.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>y</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the variable to be plotted on the y-axis.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>data</code></td>
+        <td><code>DataFrame</code></td>
+        <td><p>The dataframe containing the data to be plotted.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>data_avg</code></td>
+        <td><code>DataFrame</code></td>
+        <td><p>The dataframe containing the average values for the y variable.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>color</code></td>
+        <td><code>str</code></td>
+        <td><p>The color of the bars. Defaults to "skyblue".</p></td>
+        <td><code>&#39;skyblue&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>ax</code></td>
+        <td><code>matplotlib.axes.Axes</code></td>
+        <td><p>The axes to plot on. If not provided, a new figure will be created.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>vizbeauty/vizbeauty.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">beautybar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">data_avg</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a bar plot with annotations for each bar and a horizontal line indicating the general average value</span>
+<span class="sd">    of the variable plotted on the y-axis.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        x (str): The name of the variable to be plotted on the x-axis.</span>
+<span class="sd">        y (str): The name of the variable to be plotted on the y-axis.</span>
+<span class="sd">        data (DataFrame): The dataframe containing the data to be plotted.</span>
+<span class="sd">        data_avg (DataFrame): The dataframe containing the average values for the y variable.</span>
+<span class="sd">        color (str, optional): The color of the bars. Defaults to &quot;skyblue&quot;.</span>
+<span class="sd">        ax (matplotlib.axes.Axes, optional): The axes to plot on. If not provided, a new figure will be created.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">ax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+    <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">y</span><span class="p">]):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>
+
+    <span class="n">avg_variable</span> <span class="o">=</span> <span class="n">data_avg</span><span class="p">[</span><span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">avg_variable</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">9.5</span><span class="p">,</span> <span class="n">avg_variable</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Average: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">avg_variable</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="vizbeauty.vizbeauty.reg_scatter" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">reg_scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sizes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#vizbeauty.vizbeauty.reg_scatter" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Create a scatter plot with a regression line.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>x</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the variable to be plotted on the x-axis.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>y</code></td>
+        <td><code>str</code></td>
+        <td><p>The name of the variable to be plotted on the y-axis.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>data</code></td>
+        <td><code>DataFrame</code></td>
+        <td><p>The dataframe containing the data to be plotted.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>hue</code></td>
+        <td><code>str</code></td>
+        <td><p>Variable in data to map plot aspects to different colors.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>legend</code></td>
+        <td><code>{&#34;auto&#34;, &#34;brief&#34;, &#34;full&#34;}</code></td>
+        <td><p>How to draw the legend. Defaults to "auto".</p></td>
+        <td><code>&#39;auto&#39;</code></td>
+      </tr>
+      <tr>
+        <td><code>size</code></td>
+        <td><code>str</code></td>
+        <td><p>Grouping variable that will produce points with different sizes.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>sizes</code></td>
+        <td><code>tuple</code></td>
+        <td><p>Tuple of minimum and maximum size values to scale the size variable.</p></td>
+        <td><code>None</code></td>
+      </tr>
+      <tr>
+        <td><code>ax</code></td>
+        <td><code>matplotlib axes</code></td>
+        <td><p>Axes object to draw the plot onto.</p></td>
+        <td><code>None</code></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>vizbeauty/vizbeauty.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">reg_scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sizes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a scatter plot with a regression line.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        x (str): The name of the variable to be plotted on the x-axis.</span>
+<span class="sd">        y (str): The name of the variable to be plotted on the y-axis.</span>
+<span class="sd">        data (DataFrame): The dataframe containing the data to be plotted.</span>
+<span class="sd">        hue (str, optional): Variable in data to map plot aspects to different colors.</span>
+<span class="sd">        legend ({&quot;auto&quot;, &quot;brief&quot;, &quot;full&quot;}, optional): How to draw the legend. Defaults to &quot;auto&quot;.</span>
+<span class="sd">        size (str, optional): Grouping variable that will produce points with different sizes.</span>
+<span class="sd">        sizes (tuple, optional): Tuple of minimum and maximum size values to scale the size variable.</span>
+<span class="sd">        ax (matplotlib axes, optional): Axes object to draw the plot onto.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="n">hue</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="n">legend</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">sizes</span><span class="o">=</span><span class="n">sizes</span><span class="p">)</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">scatter</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ci</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">line_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;color&quot;</span><span class="p">:</span> <span class="s2">&quot;black&quot;</span><span class="p">})</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="vizbeauty.vizbeauty.visualize_hyperparameter" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">visualize_hyperparameter</span><span class="p">(</span><span class="n">param_name</span><span class="p">,</span> <span class="n">param_values</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span></code>
+
+
+<a href="#vizbeauty.vizbeauty.visualize_hyperparameter" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Visualize the effect of a hyperparameter on model performance.</p>
+
+<p><strong>Parameters:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><code>param_name</code></td>
+        <td><code>str</code></td>
+        <td><p>Name of the hyperparameter.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>param_values</code></td>
+        <td><code>list</code></td>
+        <td><p>List of values for the hyperparameter.</p></td>
+        <td><em>required</em></td>
+      </tr>
+      <tr>
+        <td><code>scores</code></td>
+        <td><code>list</code></td>
+        <td><p>List of mean squared error scores corresponding to each hyperparameter value.</p></td>
+        <td><em>required</em></td>
+      </tr>
+  </tbody>
+</table>
+        <details class="quote">
+          <summary>Source code in <code>vizbeauty/vizbeauty.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">visualize_hyperparameter</span><span class="p">(</span><span class="n">param_name</span><span class="p">,</span> <span class="n">param_values</span><span class="p">,</span> <span class="n">scores</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Visualize the effect of a hyperparameter on model performance.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        param_name (str): Name of the hyperparameter.</span>
+<span class="sd">        param_values (list): List of values for the hyperparameter.</span>
+<span class="sd">        scores (list): List of mean squared error scores corresponding to each hyperparameter value.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">param_values</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Effect of </span><span class="si">{</span><span class="n">param_name</span><span class="si">}</span><span class="s2"> on Model Performance&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">param_name</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Mean Squared Error&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+
+
+
+  </div>
 
     </div>
 

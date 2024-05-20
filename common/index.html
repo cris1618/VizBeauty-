@@ -580,9 +580,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vizbeauty.common.hello_world" class="md-nav__link">
+  <a href="#vizbeauty.common.pearson_correlation" class="md-nav__link">
     <span class="md-ellipsis">
-      hello_world()
+      pearson_correlation()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vizbeauty.common.print_statistic" class="md-nav__link">
+    <span class="md-ellipsis">
+      print_statistic()
     </span>
   </a>
   
@@ -640,9 +649,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#vizbeauty.common.hello_world" class="md-nav__link">
+  <a href="#vizbeauty.common.pearson_correlation" class="md-nav__link">
     <span class="md-ellipsis">
-      hello_world()
+      pearson_correlation()
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vizbeauty.common.print_statistic" class="md-nav__link">
+    <span class="md-ellipsis">
+      print_statistic()
     </span>
   </a>
   
@@ -694,22 +712,102 @@
 
 
 
-<h2 id="vizbeauty.common.hello_world" class="doc doc-heading">
-<code class="highlight language-python"><span class="n">hello_world</span><span class="p">()</span></code>
+<h2 id="vizbeauty.common.pearson_correlation" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">pearson_correlation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code>
 
 
-<a href="#vizbeauty.common.hello_world" class="headerlink" title="Permanent link">&para;</a></h2>
+<a href="#vizbeauty.common.pearson_correlation" class="headerlink" title="Permanent link">&para;</a></h2>
 
     <div class="doc doc-contents ">
 
-      <p>Prints "Hello World!" to the console.</p>
+      <p>Compute the Pearson correlation coefficient for two variables and determine if there is a statistically significant correlation.</p>
+      <ul>
+<li>x (Series): First variable for correlation.</li>
+<li>y (Series): Second variable for correlation.</li>
+</ul>
+      <ul>
+<li>None</li>
+</ul>
 
         <details class="quote">
           <summary>Source code in <code>vizbeauty/common.py</code></summary>
-          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">hello_world</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints &quot;Hello World!&quot; to the console.</span>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">pearson_correlation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute the Pearson correlation coefficient for two variables and determine if there is a statistically significant correlation.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - x (Series): First variable for correlation.</span>
+<span class="sd">    - y (Series): Second variable for correlation.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
+    <span class="n">correlation_coefficient</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pearson Correlation Coefficient:&quot;</span><span class="p">,</span> <span class="n">correlation_coefficient</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-value:&quot;</span><span class="p">,</span> <span class="n">p_value</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">p_value</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There is a statistically significant correlation between </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;There is no statistically significant correlation between </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">y</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</code></pre></div>
+        </details>
+    </div>
+
+  </div>
+
+
+
+  <div class="doc doc-object doc-function">
+
+
+
+<h2 id="vizbeauty.common.print_statistic" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">print_statistic</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span></code>
+
+
+<a href="#vizbeauty.common.print_statistic" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents ">
+
+      <p>Prints descriptive statistics for a given variable.</p>
+      <ul>
+<li>title (str): Title or label for the variable.</li>
+<li>variable (Series): Pandas Series containing the variable data.</li>
+</ul>
+      <ul>
+<li>None</li>
+</ul>
+
+        <details class="quote">
+          <summary>Source code in <code>vizbeauty/common.py</code></summary>
+          <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">print_statistic</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">variable</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Prints descriptive statistics for a given variable.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - title (str): Title or label for the variable.</span>
+<span class="sd">    - variable (Series): Pandas Series containing the variable data.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Statistics for </span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;++++++++++++++++++++++++++++++++++++++++++++++++++++++&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Median: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Standard Deviation: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">std</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Minimum: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Maximum: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;25th Percentile (Q1): </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;75th Percentile (Q3): </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="mi">75</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Skewness: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">skew</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Kurtosis: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">variable</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Count of Missing Values: </span><span class="si">{</span><span class="n">variable</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;++++++++++++++++++++++++++++++++++++++++++++++++++++++&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
 </code></pre></div>
         </details>
     </div>
