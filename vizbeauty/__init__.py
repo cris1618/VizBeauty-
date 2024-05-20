@@ -3,7 +3,6 @@
 __author__ = """Cristian Del Gobbo"""
 __email__ = "cristiandelgobbo87@gmail.com"
 __version__ = "0.0.2"
-
 from .common import print_statistic, pearson_correlation
 from .vizbeauty import beautybar, reg_scatter, visualize_hyperparameter
 
@@ -14,3 +13,4 @@ __all__ = [
     "reg_scatter",
     "visualize_hyperparameter"
 ]
+
