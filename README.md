@@ -9,7 +9,7 @@
 
 
 -   Free software: MIT License
--   Documentation: [cris1618.github.io/vizbeauty](https://github.com/cris1618/VizBeauty-)
+-   Documentation: https://github.com/cris1618/VizBeauty-
     
 
 ## Features
